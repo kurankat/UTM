@@ -5,6 +5,7 @@ import (
 	"errors"
 	"math"
 	"unicode"
+	"fmt"
 )
 
 const (
@@ -272,4 +273,16 @@ func latlon_to_zone_number(latitude float64, longitude float64) int {
 
 func zone_number_to_central_longitude(zone_number int) int {
 	return (zone_number-1)*6 - 180 + 3
+}
+
+func (coordinate Coordinate) String() (string string) {
+	string = fmt.Sprintf("Easting: %d; Northing: %d; ZoneNumber: %d;", coordinate.Easting, coordinate.Northing, coordinate.ZoneNumber)
+	if coordinate.ZoneLetter != "" {
+		string += fmt.Sprintf("ZoneLetter: %s;", coordinate.ZoneLetter)
+	}
+	return
+}
+
+func (point LatLon) String() string {
+	return fmt.Sprintf("Latitude: %.5f; Longitude: %.5f;", point.Latitude, point.Longitude)
 }

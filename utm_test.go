@@ -204,3 +204,16 @@ func TestToLatLonBadInput(t *testing.T) {
 		}
 	}
 }
+
+/*
+func TestPrettyOutput(t *testing.T) {
+	fmt.Println(knownValues[0].LatLon)
+	fmt.Println(knownValues[0].UTM)
+	coordinate := UTM.Coordinate{
+		Easting:	377486,
+		Northing:	6296562,
+		ZoneNumber:	30,
+	}
+	fmt.Println(coordinate)
+}
+*/
