@@ -3,6 +3,7 @@ package UTM
 
 import (
 	"errors"
+	"fmt"
 	"math"
 	"unicode"
 )
@@ -162,8 +163,13 @@ func ToLatLon(easting, northing float64, zoneNumber int, zoneLetter string, nort
 		d3/6*(1+2*pTan2+c) +
 		d5/120*(5-2*c+28*pTan2-3*c2+8*eP2+24*pTan4)) / pCos
 
+	fmt.Println("Longitude (earlier): ", longitude)
+
 	latitude = deg(latitude)
 	longitude = deg(longitude) + float64(zoneNumberToCentralLongitude(zoneNumber))
+
+	fmt.Println("Zone # to central long:  ", float64(zoneNumberToCentralLongitude(zoneNumber)))
+	fmt.Println("Longitude (later): ", longitude)
 
 	return
 
